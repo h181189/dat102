@@ -31,7 +31,6 @@ public class Tekstgrensesnitt {
 		System.out.println("Hvilket plateselskap hører CD-en til?");
 		String plateselskap = scanner.nextLine();
 		
-		scanner.close();
 		return new CD(nummer, artist, tittel, dato, sjanger, plateselskap);
 	}
 	
@@ -64,16 +63,12 @@ public class Tekstgrensesnitt {
 	 * Skriv ut alle CD-er av en artist
 	 * 
 	 */
-	public void skrivUtCdArtist(CDarkivADT cda) {
-		if (cda.hentAntall() == 0) {
-			return;
-		}
-		String artist = cda.hentCdTabell()[0].getArtist();
-		for (CD cd : cda.sokArtist(artist)) {
-			if (artist.equals(cd.getArtist())) {
-	 			visCD(cd);
-				System.out.println();
-			}
+	public void skrivUtCdArtist(CDarkivADT cda, String artist) {
+		CD[] alle = cda.sokArtist(artist);
+
+		for (CD cd : alle) {
+			visCD(cd);
+			System.out.println();
 		}
 	}
 	
