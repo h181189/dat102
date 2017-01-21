@@ -42,7 +42,8 @@ public class CDarkiv implements CDarkivADT{
 			}
 		}
 		arkiv[indeks] = arkiv[antall - 1];
-		arkiv[antall - 1] = null;
+		arkiv[--antall] = null;
+		
 		return false;
 	}
 
@@ -61,11 +62,11 @@ public class CDarkiv implements CDarkivADT{
 	}
 
 	@Override
-	public CD[] sokArtist(String delstreng) {
+	public CD[] sokArtist(String artist) {
 		CD[] treff = new CD[arkiv.length];
 		int antall = 0;
 		for (CD cd : arkiv) {
-			if (cd.getArtist().contains(delstreng)) {
+			if (cd.getArtist().equalsIgnoreCase(artist)) {
 				treff[antall] = cd;
 				antall++;
 			}
