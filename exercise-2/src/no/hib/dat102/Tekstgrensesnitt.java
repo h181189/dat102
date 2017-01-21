@@ -53,9 +53,13 @@ public class Tekstgrensesnitt {
 	 */
 	public void skrivUtCdDelstrengITittel(CDarkivADT cda, String delstreng) {
 		CD[] treff = cda.sokTittel(delstreng);
-		for (CD cd : treff) {
-			visCD(cd);
-			System.out.println();
+		if (treff.length > 0) {
+			for (CD cd : treff) {
+				visCD(cd);
+				System.out.println();
+			}
+		} else {
+			System.out.println("Ingen treff for " + delstreng + ".");
 		}
 	}
 	
@@ -65,16 +69,21 @@ public class Tekstgrensesnitt {
 	 */
 	public void skrivUtCdArtist(CDarkivADT cda, String artist) {
 		CD[] alle = cda.sokArtist(artist);
-
-		for (CD cd : alle) {
-			visCD(cd);
-			System.out.println();
+		
+		if (alle.length > 0) {
+			for (CD cd : alle) {
+				visCD(cd);
+				System.out.println();
+			}
+		} else {
+			System.out.println("Ingen treff for " + artist + ".");
 		}
 	}
 	
 	/**
 	 * Skrive ut en enkel statistikk som inneholder antall CD-er totalt
 	 * og hvor mange det er i hver sjanger
+	 * 
 	 */
 	public void skrivUtStatistikk(CDarkivADT cda) {
 		System.out.println("CD-er totalt: " + cda.hentAntall());

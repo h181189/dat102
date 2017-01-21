@@ -42,36 +42,39 @@ public class CDarkiv implements CDarkivADT{
 			}
 		}
 		arkiv[indeks] = arkiv[antall - 1];
-		arkiv[antall - 1] = null;
+		arkiv[--antall] = null;
+		
 		return false;
 	}
 
 	@Override
 	public CD[] sokTittel(String delstreng) {
 		CD[] treff = new CD[arkiv.length];
-		int antall = 0;
-		for (CD cd : arkiv) {
-			if (cd.getTittel().contains(delstreng)) {
-				treff[antall] = cd;
-				antall++;
+		int antallTreff = 0;
+		for (int i = 0; i < antall; i++) {
+			CD cd = arkiv[i];
+			if (cd.getTittel().toLowerCase().contains(delstreng.toLowerCase())) {
+				treff[antallTreff] = cd;
+				antallTreff++;
 			}
 		}
 		
-		return trimTabell(treff, antall);
+		return trimTabell(treff, antallTreff);
 	}
 
 	@Override
-	public CD[] sokArtist(String delstreng) {
+	public CD[] sokArtist(String artist) {
 		CD[] treff = new CD[arkiv.length];
-		int antall = 0;
-		for (CD cd : arkiv) {
-			if (cd.getArtist().contains(delstreng)) {
-				treff[antall] = cd;
-				antall++;
+		int antallTreff = 0;
+			for (int i = 0; i < antall; i++) {
+				CD cd = arkiv[i];
+				if (cd.getArtist().equalsIgnoreCase(artist)) {
+					treff[antallTreff] = cd;
+					antallTreff++;
+				}
 			}
-		}
-		
-		return trimTabell(treff, antall);
+
+		return trimTabell(treff, antallTreff);
 	}
 
 	@Override
