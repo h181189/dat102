@@ -66,14 +66,13 @@ public class CDarkiv implements CDarkivADT{
 	public CD[] sokArtist(String artist) {
 		CD[] treff = new CD[arkiv.length];
 		int antallTreff = 0;
-			for (int i = 0; i < antall; i++) {
-				CD cd = arkiv[i];
-				if (cd.getArtist().equalsIgnoreCase(artist)) {
-					treff[antallTreff] = cd;
-					antallTreff++;
-				}
+		for (int i = 0; i < antall; i++) {
+			CD cd = arkiv[i];
+			if (cd.getArtist().equalsIgnoreCase(artist)) {
+				treff[antallTreff] = cd;
+				antallTreff++;
 			}
-
+		}
 		return trimTabell(treff, antallTreff);
 	}
 
