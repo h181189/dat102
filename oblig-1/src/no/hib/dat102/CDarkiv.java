@@ -93,7 +93,7 @@ public class CDarkiv implements CDarkivADT{
 		return antall;
 	}
 	
-	public void utvidTabell() {
+	private void utvidTabell() {
 		CD[] temp = new CD[(int) Math.ceil(arkiv.length * 1.1)];
 		for (int i = 0; i < arkiv.length; i++) {
 			temp[i] = arkiv[i];
@@ -101,7 +101,7 @@ public class CDarkiv implements CDarkivADT{
 		arkiv = temp;
 	}
 	
-	public CD[] trimTabell(CD[] samling, int nyLengde) {
+	private CD[] trimTabell(CD[] samling, int nyLengde) {
 		CD[] trimmetArkiv = new CD[nyLengde];
 		for (int i = 0; i < Math.min(samling.length, nyLengde); i++) {
 			trimmetArkiv[i] = samling[i];

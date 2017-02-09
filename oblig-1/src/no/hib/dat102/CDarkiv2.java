@@ -94,7 +94,7 @@ public class CDarkiv2 implements CDarkivADT {
 		return antallTreff;
 	}
 
-	public CD[] trimTabell(CD[] samling, int nyLengde) {
+	private CD[] trimTabell(CD[] samling, int nyLengde) {
 		CD[] trimmetArkiv = new CD[nyLengde];
 		for (int i = 0; i < Math.min(samling.length, nyLengde); i++) {
 			trimmetArkiv[i] = samling[i];
