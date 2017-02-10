@@ -24,7 +24,17 @@ public class Meny {
 		int svar;
 		
 		while (!ferdig) {
-			System.out.println("Hva vil du gjøre? (0)Eksporter fil til arkiv (1)Se arkiv (2)Les fil (3)Skriv til fil (4)Legg til CD (5)Slett CD (6)Søk etter artist (7)Søk etter tittel (8)Søk sjanger (9)Ferdig");
+			System.out.println("0) Eksporter fil til arkiv");
+			System.out.println("1) Se arkiv");
+			System.out.println("2) Les fil");
+			System.out.println("3) Skriv til fil");
+			System.out.println("4) Legg til");
+			System.out.println("5) Slett CD");
+			System.out.println("6) Søk etter artist");
+			System.out.println("7) Søk etter tittel");
+			System.out.println("8) Søk etter sjanger");
+			System.out.println("9) Avslutt");
+			
 			svar = input.nextInt();
 
 			switch (svar) {
