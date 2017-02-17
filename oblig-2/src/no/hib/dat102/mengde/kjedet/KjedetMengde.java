@@ -1,10 +1,12 @@
 package no.hib.dat102.mengde.kjedet;
 
-import no.hib.dat102.mengde.adt.*;
 //********************************************************************
 // Kjedet implementasjon av en mengde. 
 //********************************************************************
-import java.util.*;
+import java.util.Iterator;
+import java.util.Random;
+
+import no.hib.dat102.mengde.adt.MengdeADT;
 
 public class KjedetMengde<T> implements MengdeADT<T> {
 	private static Random rand = new Random();
@@ -153,6 +155,37 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 	@Override
 	public Iterator<T> oppramser() {
 		return new KjedetIterator<T>(start);
+	}
+
+	@Override
+	public MengdeADT<T> snitt(MengdeADT<T> m2) {
+		MengdeADT<T> felles = new KjedetMengde<>();
+		LinearNode<T> current = start;
+		do {
+			if (m2.inneholder(current.getElement())) {
+				felles.leggTil(current.getElement());
+			}
+		} while ((current = current.getNeste()) != null);
+		return felles;
+	}
+
+	@Override
+	public MengdeADT<T> differens(MengdeADT<T> m2) {
+		MengdeADT<T> dif = new KjedetMengde<>();
+		LinearNode<T> current = start;
+		do {
+			if (!m2.inneholder(current.getElement())) {
+				dif.leggTil(current.getElement());
+			}
+		} while ((current = current.getNeste()) != null);
+		Iterator<T> it = m2.oppramser();
+		while (it.hasNext()) {
+			T t = it.next();
+			if (!inneholder(t)) {
+				dif.leggTil(t);
+			}
+		}
+		return dif;
 	}
 
 }// class

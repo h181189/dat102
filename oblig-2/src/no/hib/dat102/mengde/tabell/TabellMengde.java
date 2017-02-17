@@ -139,4 +139,33 @@ public class TabellMengde<T> implements MengdeADT<T> {
 		return new TabellIterator<T>(tab, antall);
 	}
 
+	@Override
+	public MengdeADT<T> snitt(MengdeADT<T> m2) {
+		MengdeADT<T> felles = new TabellMengde<T>();
+		for (int i = 0; i < antall; i++) {
+			if (m2.inneholder(tab[i])) {
+				felles.leggTil(tab[i]);
+			}
+		}
+		return felles;
+	}
+
+	@Override
+	public MengdeADT<T> differens(MengdeADT<T> m2) {
+		MengdeADT<T> dif = new TabellMengde<T>();
+		for (int i = 0; i < antall; i++) {
+			if (!m2.inneholder(tab[i])) {
+				dif.leggTil(tab[i]);
+			}
+		}
+		Iterator<T> it = m2.oppramser();
+		while (it.hasNext()) {
+			T t = it.next();
+			if (!inneholder(t)) {
+				dif.leggTil(t);
+			}
+		}
+		return dif;		
+	}
+
 }// class

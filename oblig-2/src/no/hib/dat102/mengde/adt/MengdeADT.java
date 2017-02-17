@@ -4,13 +4,14 @@ import java.util.Iterator;
 
 public interface MengdeADT<T> {
 	// Interface som definerer alle operasjoner i en ADT
-	// med navn MengdeADT (en datasamling, en høynivå datastruktur)
+	// med navn MengdeADT (en datasamling, en hï¿½ynivï¿½ datastruktur)
 
 	/**
 	 * Legger til et objekt av klasse T til dette mengde-objektet hvis det ikke
-	 * fins fra før
+	 * fins fra fï¿½r
 	 * 
-	 * @param element som skal legges til
+	 * @param element
+	 *            som skal legges til
 	 */
 	void leggTil(T element);
 
@@ -23,30 +24,35 @@ public interface MengdeADT<T> {
 
 	/**
 	 * 
-	 * @param element er elemenentet som skal fjernes hvis det fins ellers returneres null
+	 * @param element
+	 *            er elemenentet som skal fjernes hvis det fins ellers
+	 *            returneres null
 	 * @return elementet som fjernes
 	 */
 	T fjern(T element);
 
 	/**
-	 
-	 * @param m2 er mengden det skal lages union med.
+	 * 
+	 * @param m2
+	 *            er mengden det skal lages union med.
 	 * @return er union av mengden m2 og this-mengden
 	 */
 	MengdeADT<T> union(MengdeADT<T> m2);
 
 	/**
 	 * 
-	 * @param element er det gitte elementet
+	 * @param element
+	 *            er det gitte elementet
 	 * @return sann hvis elementet fins ellers usann
 	 */
 	boolean inneholder(T element);
 
 	/**
-	 * Tester om this-mengden og parameteren inneholder nøyaktig de samme
+	 * Tester om this-mengden og parameteren inneholder nï¿½yaktig de samme
 	 * elementene
 	 * 
-	 * @param m2 er  mengden som testes
+	 * @param m2
+	 *            er mengden som testes
 	 * @return sann hvis de to mengden er like ellers usann
 	 */
 	boolean erLik(MengdeADT<T> m2);
@@ -70,17 +76,18 @@ public interface MengdeADT<T> {
 	 * @param m2
 	 * @return
 	 */
-	//MengdeADT<T> snitt(MengdeADT<T> m2);
+	MengdeADT<T> snitt(MengdeADT<T> m2);
+
 	/**
 	 * 
 	 * @param m2
 	 * @return
 	 */
 
-	//MengdeADT<T> differens(MengdeADT<T> m2);
+	MengdeADT<T> differens(MengdeADT<T> m2);
 
 	/**
-	 * Oppretter et 'oppramsobjekt' som kan brukes til å gjennomgå alle
+	 * Oppretter et 'oppramsobjekt' som kan brukes til ï¿½ gjennomgï¿½ alle
 	 * elementer i mengden etter tur en gang
 	 * 
 	 * @return et oppramsobjekt
