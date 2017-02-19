@@ -1,12 +1,8 @@
 # Eclipse
-bin/
+*/bin/
 .classpath
 .project
 *.settings
-
-# Gradle
-/build
-.gradle
 
 # macOS
 .DS_Store
