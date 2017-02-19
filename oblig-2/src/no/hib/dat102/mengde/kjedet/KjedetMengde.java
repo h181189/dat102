@@ -72,7 +72,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 			start = start.getNeste();
 			return resultat;
 		}
-		
+
 		LinearNode<T> forgjenger = null, aktuell = start;
 		boolean funnet = false;
 		while ((aktuell = aktuell.getNeste()) != null && !funnet) {
@@ -84,7 +84,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 			}
 			forgjenger = aktuell;
 		}
-		
+
 		return resultat;
 	}//
 
@@ -95,7 +95,8 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		while (aktuell != null) {
 			begge.leggTil(aktuell.getElement());
 			aktuell = aktuell.getNeste();
-		} // while
+		}
+		
 		Iterator<T> teller = m2.oppramser();
 		while (teller.hasNext()) {
 			begge.leggTil(teller.next());
@@ -132,7 +133,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		if (m2.antall() != antall) {
 			return false;
 		}
-		
+
 		boolean likeMengder = true;
 		LinearNode<T> current = start;
 		do {
@@ -186,6 +187,22 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 			}
 		}
 		return dif;
+	}
+
+	@Override
+	public MengdeADT<T> unionForbedret(MengdeADT<T> m2) {
+		MengdeADT<T> begge = new KjedetMengde<T>();
+		LinearNode<T> aktuell = start;
+		while (aktuell != null) {
+			((KjedetMengde<T>) begge).settInn(aktuell.getElement());
+			aktuell = aktuell.getNeste();
+		}
+		
+		Iterator<T> teller = m2.oppramser();
+		while (teller.hasNext()) {
+			begge.leggTil(teller.next());
+		}
+		return begge;
 	}
 
 }// class

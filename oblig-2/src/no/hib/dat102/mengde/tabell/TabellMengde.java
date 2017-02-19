@@ -88,8 +88,8 @@ public class TabellMengde<T> implements MengdeADT<T> {
 		for (int i = 0; i < antall; i++) {
 			begge.leggTil(tab[i]);
 		}
-		Iterator<T> teller = m2.oppramser();
 
+		Iterator<T> teller = m2.oppramser();
 		while (teller.hasNext()) {
 			begge.leggTil(teller.next());
 		}
@@ -166,6 +166,21 @@ public class TabellMengde<T> implements MengdeADT<T> {
 			}
 		}
 		return dif;		
+	}
+
+	@Override
+	public MengdeADT<T> unionForbedret(MengdeADT<T> m2) {
+		MengdeADT<T> begge = new TabellMengde<T>();
+		for (int i = 0; i < antall; i++) {
+			((TabellMengde<T>) begge).settInn(tab[i]);
+		}
+
+		Iterator<T> teller = m2.oppramser();
+		while (teller.hasNext()) {
+			begge.leggTil(teller.next());
+		}
+
+		return begge;
 	}
 
 }// class

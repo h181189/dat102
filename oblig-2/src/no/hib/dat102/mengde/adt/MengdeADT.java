@@ -93,5 +93,12 @@ public interface MengdeADT<T> {
 	 * @return et oppramsobjekt
 	 */
 	Iterator<T> oppramser();
+	
+	/**
+	 * Finner unionen på en mer effektiv måte.
+	 * 
+	 */
+	MengdeADT<T> unionForbedret(MengdeADT<T> m2);
+	
 
 }// ADT
