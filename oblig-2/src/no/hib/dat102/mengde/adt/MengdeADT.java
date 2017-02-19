@@ -76,7 +76,7 @@ public interface MengdeADT<T> {
 	 * @param m2
 	 * @return
 	 */
-	MengdeADT<T> snitt(MengdeADT<T> m2);
+	public MengdeADT<T> snitt(MengdeADT<T> m2);
 
 	/**
 	 * 
