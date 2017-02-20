@@ -10,6 +10,4 @@ public class TabellMengdeTest extends MengdeTest {
 		return new TabellMengde<Integer>();
 	}
 	
-	
-	
 }

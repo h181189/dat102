@@ -1,17 +1,20 @@
 package no.hib.dat102.mengde.klient;
 
+import no.hib.dat102.mengde.adt.MengdeADT;
 import no.hib.dat102.mengde.kjedet.KjedetMengde;
 import no.hib.dat102.mengde.tabell.TabellMengde;
 
-public class KlientBingo {
+public abstract class KlientBingo {
 	// Oppretter 2 mengder med 75 bingokuler i hver.
 	// Tester om en spesiell bingokule er med i den ene mengden,
 	// og om de to mengdene er n�yaktig like.
 
-	public static void main(String[] a) {
+	protected abstract MengdeADT<Bingokule> lagNyMengde();
+	
+	public void run() {
 		final int ANTALL_BALLER = 75;
-		KjedetMengde<Bingokule> minMengde1 = new KjedetMengde<Bingokule>();
-		TabellMengde<Bingokule> minMengde2 = new TabellMengde<Bingokule>();
+		MengdeADT<Bingokule> minMengde1 = lagNyMengde();
+		MengdeADT<Bingokule> minMengde2 = lagNyMengde();
 		Bingokule kule1 = null;
 		Bingokule kule2 = null;
 
@@ -39,6 +42,5 @@ public class KlientBingo {
 			System.out.println("Ulike mengder");
 		}
 		
-
 	}
 }// class
