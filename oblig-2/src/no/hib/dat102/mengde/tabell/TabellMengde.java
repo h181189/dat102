@@ -158,13 +158,6 @@ public class TabellMengde<T> implements MengdeADT<T> {
 				dif.leggTil(tab[i]);
 			}
 		}
-		Iterator<T> it = m2.oppramser();
-		while (it.hasNext()) {
-			T t = it.next();
-			if (!inneholder(t)) {
-				dif.leggTil(t);
-			}
-		}
 		return dif;		
 	}
 

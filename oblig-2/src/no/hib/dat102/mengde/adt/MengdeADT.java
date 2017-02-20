@@ -84,7 +84,7 @@ public interface MengdeADT<T> {
 	 * @return
 	 */
 
-	MengdeADT<T> differens(MengdeADT<T> m2);
+	public MengdeADT<T> differens(MengdeADT<T> m2);
 
 	/**
 	 * Oppretter et 'oppramsobjekt' som kan brukes til � gjennomg� alle

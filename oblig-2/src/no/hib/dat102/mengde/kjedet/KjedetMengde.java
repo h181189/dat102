@@ -173,17 +173,12 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 	@Override
 	public MengdeADT<T> differens(MengdeADT<T> m2) {
 		MengdeADT<T> dif = new KjedetMengde<>();
-		LinearNode<T> current = start;
-		do {
-			if (!m2.inneholder(current.getElement())) {
-				dif.leggTil(current.getElement());
-			}
-		} while ((current = current.getNeste()) != null);
-		Iterator<T> it = m2.oppramser();
+		T current;
+		Iterator<T> it = oppramser();
 		while (it.hasNext()) {
-			T t = it.next();
-			if (!inneholder(t)) {
-				dif.leggTil(t);
+			current = it.next();
+			if (!m2.inneholder(current)) {
+				dif.leggTil(current);
 			}
 		}
 		return dif;

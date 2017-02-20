@@ -4,6 +4,9 @@
 .project
 *.settings
 
+# Java
+*.class
+
 # macOS
 .DS_Store
 
