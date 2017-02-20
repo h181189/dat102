@@ -133,6 +133,9 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		if (m2.antall() != antall) {
 			return false;
 		}
+		if (antall == 0) {
+			return true;
+		}
 
 		boolean likeMengder = true;
 		LinearNode<T> current = start;
