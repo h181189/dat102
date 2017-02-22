@@ -1,8 +1,6 @@
 package no.hib.dat102.mengde.klient;
 
 import no.hib.dat102.mengde.adt.MengdeADT;
-import no.hib.dat102.mengde.kjedet.KjedetMengde;
-import no.hib.dat102.mengde.tabell.TabellMengde;
 
 public abstract class KlientBingo {
 	// Oppretter 2 mengder med 75 bingokuler i hver.

@@ -176,4 +176,14 @@ public class TabellMengde<T> implements MengdeADT<T> {
 		return begge;
 	}
 
-}// class
+	@Override
+	public String toString() {
+		String s = "";
+		Iterator<T> it = oppramser();
+		while (it.hasNext()) {
+			s += it.next().toString();
+		}
+		return s;
+	}
+	
+}

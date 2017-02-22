@@ -80,6 +80,7 @@ public class Ordliste {
 			System.out.print(ordListeDiff.fjernTilfeldig() + " ");
 		}
 		
+		tastatur.close();
 	}
 	
 }
