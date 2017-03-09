@@ -11,6 +11,4 @@ public class KjedetMengdeTest extends MengdeTest {
 		return new KjedetMengde<Integer>();
 	}
 	
-	
-	
 }

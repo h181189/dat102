@@ -117,6 +117,9 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
 	@Override
 	public boolean erLik(MengdeADT<T> m2) {
+		if (m2 == null) {
+			return false;
+		}
 		if (m2.antall() != antall()) {
 			return false;
 		}
