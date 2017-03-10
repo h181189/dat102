@@ -1,4 +1,4 @@
-package no.hib.dat102.kjedet;
+package no.hib.dat102.mengde.kjedet;
 
 import no.hib.dat102.mengde.adt.MengdeADT;
 import no.hib.dat102.mengde.adt.MengdeTest;
