@@ -25,32 +25,33 @@ public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 		
 	@Override
 	public void leggTil(T element) {
-
 		LinearNode<T> ny = new LinearNode<T>(element);
-		
-		// Finn rett posisjon for nytt element
 		LinearNode<T> denne = foerste, forrige = null;
-		//... Fyll ut
-		boolean fortsett = denne.getElement().compareTo(element) > 0;
-		do {
-			forrige = denne;
-		} while ((denne = denne.getNeste()) != null && fortsett);
 		
-		
-		// Plasserer ny node mellom forrige og denne
-		//... Fyll ut
-		
-		if (forrige == null) {
-			ny.setNeste(denne);
-			foerste = ny;
+		if (foerste == null) {
+			foerste = siste = ny;
 		} else {
-			forrige.setNeste(ny);
-			ny.setNeste(denne);
+			
+			boolean fortsett = denne.getElement().compareTo(element) < 0;
+			while (denne.getNeste() != null && fortsett) {
+				forrige = denne;
+				denne = denne.getNeste();
+				fortsett = denne.getElement().compareTo(element) < 0;
+			}
+			
+			if (fortsett) {
+				denne.setNeste(ny);
+				siste = ny;
+			} else {
+				if (forrige == null) {
+					foerste = ny;
+				} else {
+					forrige.setNeste(ny);
+				}
+				ny.setNeste(denne);
+			}
 		}
 		
-		if (denne == null) {
-			siste = ny;
-		}
 		antall++;
 	}
 
@@ -128,25 +129,26 @@ public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 
     @Override
     public T fjernFoerste() {
-        T svar = null;
-        svar = foerste.getElement();
-        foerste.setNeste(foerste.getNeste());
-        return svar;
+        return fjern(foerste.getElement());
     }
 
     @Override
     public T fjernSiste() {
-        T svar = null;
-        LinearNode<T> current = foerste;
-        
-        for (int i = 0; i < antall - 1; i++) {
-        	current = current.getNeste();
-        }
-        svar = current.getNeste().getElement();
-        current.setNeste(null);
-        antall--;
-        
-        return svar;
+        return fjern(siste.getElement());
     }
 	
+	
+    @Override
+    public String toString() {
+    	LinearNode<T> node = foerste;
+    	String string = "";
+    	string += node.getElement().toString() + " ";
+    	while (node.getNeste() != null) {
+    		node = node.getNeste();
+    		string += node.getElement().toString() + " ";
+    	}
+    	
+    	return string;
+    }
+    
 }

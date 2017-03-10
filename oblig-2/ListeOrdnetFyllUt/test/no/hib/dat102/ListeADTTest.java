@@ -50,7 +50,7 @@ public class ListeADTTest {
 	 */
 	@Test
 	public final void leggTilOgFjern() { 
-		liste.leggTil(e0); 
+		liste.leggTil(e0);
 		liste.leggTil(e1); 
 		liste.leggTil(e2); 
 		liste.leggTil(e3); 
@@ -76,12 +76,12 @@ public class ListeADTTest {
 		liste.leggTil(e0); 
 		liste.leggTil(e4); 
 		liste.leggTil(e3); 
-		assertEquals(e0, liste.fjernSiste()); 
-		assertEquals(e1, liste.fjernSiste());
-		assertEquals(e2, liste.fjernSiste());
-		assertEquals(e3, liste.fjernSiste());
-		assertEquals(e4, liste.fjernSiste());
-		assertEquals(e5, liste.fjernSiste());
+		assertEquals(e0, liste.fjernFoerste()); 
+		assertEquals(e1, liste.fjernFoerste());
+		assertEquals(e2, liste.fjernFoerste());
+		assertEquals(e3, liste.fjernFoerste());
+		assertEquals(e4, liste.fjernFoerste());
+		assertEquals(e5, liste.fjernFoerste());
 	}
 
 	
@@ -92,7 +92,7 @@ public class ListeADTTest {
 		liste.leggTil(e5); 
 		liste.leggTil(e0); 
 		liste.leggTil(e4); 
-		liste.leggTil(e3); 
+		liste.leggTil(e3);
 		assertEquals(e5, liste.fjernSiste()); 
 		assertEquals(e4, liste.fjernSiste());
 		assertEquals(e3, liste.fjernSiste());
@@ -107,8 +107,12 @@ public class ListeADTTest {
 	 */
 	@Test
 	public final void leggTilOgfjernMedDuplikater() {
-		//... Fyll ut med � legge til passende elementer
-		
+		liste.leggTil(e1);
+		liste.leggTil(e4);
+		liste.leggTil(e1);
+		liste.leggTil(e3);
+		liste.leggTil(e0);
+		liste.leggTil(e2);
 		assertEquals(e0, liste.fjern(e0)); 
 		assertEquals(e1, liste.fjern(e1));
 		assertEquals(e4, liste.fjern(e4));
