@@ -1,2 +1,3 @@
-(Det }er ikke godt )å si)( om dette virker)
-Men jeg håper at det gjør[ d{et ()}
+(Dette er en tekstfil)
+Denne filen vil inneholde[noen) feil i tegnsetting av (Parenteser)
+Her ha{r vi feil

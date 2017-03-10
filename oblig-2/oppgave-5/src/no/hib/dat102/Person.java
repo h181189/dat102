@@ -2,17 +2,17 @@ package no.hib.dat102;
 
 public class Person implements Comparable<Person> {
 
-	private String fodselsar;
+	private int fodselsar;
 	private String fornavn;
 	private String etternavn;
 	
-	public Person(String fodselsar, String fornavn, String etternavn) {
+	public Person(int fodselsar, String fornavn, String etternavn) {
 		this.fodselsar = fodselsar;
 		this.fornavn = fornavn;
 		this.etternavn = etternavn;
 	}
 	
-	public String getFodselsar() {
+	public int getFodselsar() {
 		return fodselsar;
 	}
 	
@@ -24,7 +24,7 @@ public class Person implements Comparable<Person> {
 		return etternavn;
 	}
 	
-	public void setFodselsar(String fodselsar) {
+	public void setFodselsar(int fodselsar) {
 		this.fodselsar = fodselsar;
 	}
 	

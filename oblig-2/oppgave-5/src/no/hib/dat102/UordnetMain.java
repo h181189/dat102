@@ -26,7 +26,8 @@ public class UordnetMain {
 	
 	public static Person buildPerson(Scanner scanner) {
 		System.out.println("Fodselsar:");
-		String fodselsar = scanner.nextLine();
+		int fodselsar = scanner.nextInt();
+		scanner.nextLine();
 
 		System.out.println("Fornavn:");
 		String fornavn = scanner.nextLine();
