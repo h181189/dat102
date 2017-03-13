@@ -68,9 +68,7 @@ public class DobbelKjedetOrdnetListeS<T extends Comparable<T>> implements Dobbel
 			nyNode.getNeste().setForrige(nyNode);
 			
 			// Oppdaterer ny midten
-			if (antall % 2 == 0) {
-				midten = midten.getNeste();
-			}
+			nyMidten();
 		} // else lovlige
 
 	}//
@@ -130,11 +128,7 @@ public class DobbelKjedetOrdnetListeS<T extends Comparable<T>> implements Dobbel
 			p.getForrige().setNeste(p.getNeste());
 			p.getNeste().setForrige(p.getForrige());
 			// Oppadtere midten
-			if (antall % 2 == 0) {
-				midten = midten.getForrige();
-			} else {
-				midten = midten.getNeste();
-			}
+			nyMidten();
 
 			resultat = p.getElement();
 
