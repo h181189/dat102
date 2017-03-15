@@ -7,7 +7,9 @@ public class MergeSort<T extends Comparable<? super T>> implements Sorter<T> {
 
 	@Override
 	public List<T> sort(List<T> list) {
-		list = mergeSort(list);
+		List<T> sortedList = mergeSort(list);
+		list.clear();
+		list.addAll(sortedList);
 		return list;
 	}
 	
