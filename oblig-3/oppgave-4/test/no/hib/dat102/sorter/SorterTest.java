@@ -50,7 +50,7 @@ public abstract class SorterTest {
 		Assert.assertTrue(unsorted.containsAll(list));
 		
 		Assert.assertFalse(isSorted(list));
-		list = sorter.sort(list);
+		sorter.sort(list);
 		Assert.assertTrue(isSorted(list));
 		
 		Assert.assertTrue(list.size() == unsorted.size());
